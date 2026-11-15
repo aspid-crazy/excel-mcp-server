@@ -1,0 +1,46 @@
+{
+  "name": "excel-mcp",
+  "displayName": "Excel Workbooks MCP",
+  "description": "Excel workbooks for the chat agent: read and write cells, formulas, tables, charts, pivots and formatting in .xlsx without Excel installed.",
+  "version": "2.3.0",
+  "publisher": "kvant",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aspid-crazy/excel-mcp-server"
+  },
+  "engines": {
+    "vscode": "^1.101.0"
+  },
+  "categories": ["AI", "Other"],
+  "keywords": ["mcp", "excel", "xlsx", "spreadsheet", "office"],
+  "main": "./extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "kvant.excel-mcp",
+        "label": "Excel workbooks"
+      }
+    ],
+    "configuration": {
+      "title": "Excel Workbooks MCP",
+      "properties": {
+        "kvantExcelMcp.allowedDirectories": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "description": "Extra absolute folders the agent may open workbooks in. Workspace folders are always allowed."
+        },
+        "kvantExcelMcp.readOnly": {
+          "type": "boolean",
+          "default": false,
+          "description": "Register only the tools that read workbooks."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}
